@@ -1,0 +1,3 @@
+SeerUKTestBundle:
+    resource: "@SeerUKTestBundle/Resources/config/routing.yml"
+    prefix:   /

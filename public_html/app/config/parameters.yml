@@ -1,0 +1,14 @@
+parameters:
+    database_driver: pdo_mysql
+    database_host: localhost
+    database_port: null
+    database_name: EW_Portfolio
+    database_user: root
+    database_password: Gunsnroses2
+    mailer_transport: smtp
+    mailer_host: localhost
+    mailer_user: null
+    mailer_password: null
+    locale: en
+    secret: 6a61d1e8224a5dede92bbf692cea371685d3188e
+    database_path: null
