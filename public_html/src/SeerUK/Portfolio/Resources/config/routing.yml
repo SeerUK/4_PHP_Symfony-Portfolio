@@ -1,0 +1,11 @@
+SeerUK_Home:
+    pattern:  /
+    defaults: { _controller: SeerUKPortfolio:Default:index }
+
+SeerUK_BlogHome:
+    pattern:  /Blog/Home
+    defaults: { _controller: SeerUKPortfolio:Blog:Home }
+
+SeerUK_BlogArticle:
+    pattern:  /Blog/Article/{article}
+    defaults: { _controller: SeerUKPortfolio:Blog:Article }

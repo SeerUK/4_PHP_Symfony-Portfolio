@@ -1,3 +1,0 @@
-seer_uk_test_homepage:
-    pattern:  /{module}/{page}
-    defaults: { _controller: SeerUKTestBundle:Default:index }
