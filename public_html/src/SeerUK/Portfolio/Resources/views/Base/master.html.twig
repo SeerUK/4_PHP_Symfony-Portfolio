@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+	<head>
+		{% block head %}
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		{% block head_meta %}{% endblock %}
+
+		<title>
+			{% block head_title %}
+
+				{{ pageTitle }} | {{ constant('SITE_NAME') }}
+
+			{% endblock %}
+		</title>
+
+		{# Include Stylesheets #}
+		<link rel="stylesheet" href="{{ asset('static/css/bootstrap.min.css') }}" />
+		<link rel="stylesheet" href="{{ asset('static/css/style.min.css') }}">
+		{% block head_css %}{% endblock %}
+
+		{# Google Analytics Code #}
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-35279508-3']);
+			_gaq.push(['_setDomainName', 'elliot-wright.net']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+
+		{% endblock %}
+	</head>
+	<body>
+		{% block body %}
+
+		<div class="container">
+			{% block body_userbar %}
+
+			<div class="userbar">
+				<div class="userbar-inner">
+					<div class="well well-dark well-small">
+						<a href="Login/" class="navbtn navbtn-success pull-right">Sign In</a>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+
+			{% endblock %}
+			<div class="container-error"></div>
+			<div class="content content-fixed">
+				<div class="row-fluid">
+					<div class="span3">
+						<div class="mainbar">
+							<div class="bubble flip">
+								<nav>
+									<ul class="epic-list">
+
+									</ul>
+								</nav>
+							</div>
+							<br />
+							<div class="brand flip">
+								<blockquote>
+									<p><strong>Elliot Wright</strong></p>
+									<small>PHP Web Developer</small>
+								</blockquote>
+							</div>
+						</div>
+					</div>
+					{% block body_content %}
+
+					{% endblock %}
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+
+		{% endblock %}
+		{% block body_javascript %}
+
+		{# Include JavaScript #}
+		<script src="{{ asset('static/js/js.php') }}" type="text/javascript" async="async"></script>
+
+		{% endblock %}
+	</body>
+</html>
