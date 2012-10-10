@@ -1,6 +1,6 @@
 <?php
 
-namespace SeerUK\Portfolio\Controller;
+namespace SeerUK\Portfolio\PortfolioBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;

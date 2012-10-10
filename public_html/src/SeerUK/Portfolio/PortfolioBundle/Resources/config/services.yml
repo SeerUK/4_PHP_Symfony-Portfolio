@@ -1,0 +1,12 @@
+parameters:
+#    seer_uk_portfolio.example.class: SeerUK\Portfolio\PortfolioBundle\Example
+
+services:
+
+    # =======================
+    #  Twig Extensions
+    # =======================
+    seer_uk_portfolio.twig.extension.navigation_extension:
+        class: SeerUK\Portfolio\PortfolioBundle\Twig\Extension\NavigationExtension
+        tags:
+            - { name: twig.extension }

@@ -60,11 +60,11 @@
 							<div class="bubble flip">
 								<nav>
 									<ul class="epic-list">
-										<li><a href="#" class="ellipsis">Home</a></li>
-										<li><a href="#" class="ellipsis">Blog</a></li>
-										<li><a href="#" class="ellipsis">Skills</a></li>
-										<li><a href="#" class="ellipsis">Portfolio</a></li>
-										<li><a href="#" class="ellipsis">Contact</a></li>
+										{% for key, item in primary_navigation() %}
+										<li>
+											<a href="{{ url( item ) }}" class="ellipsis {% if item == app.request.attributes.get('_route') %}active{% endif %}">{{ key }}</a>
+										</li>
+										{% endfor %}
 									</ul>
 								</nav>
 							</div>

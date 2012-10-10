@@ -1,7 +1,0 @@
-parameters:
-#    seer_uk_test.example.class: SeerUK\TestBundle\Example
-
-services:
-#    seer_uk_test.example:
-#        class: %seer_uk_test.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
