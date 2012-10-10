@@ -60,7 +60,11 @@
 							<div class="bubble flip">
 								<nav>
 									<ul class="epic-list">
-
+										<li><a href="#" class="ellipsis">Home</a></li>
+										<li><a href="#" class="ellipsis">Blog</a></li>
+										<li><a href="#" class="ellipsis">Skills</a></li>
+										<li><a href="#" class="ellipsis">Portfolio</a></li>
+										<li><a href="#" class="ellipsis">Contact</a></li>
 									</ul>
 								</nav>
 							</div>
@@ -82,11 +86,8 @@
 		</div>
 
 		{% endblock %}
-		{% block body_javascript %}
-
 		{# Include JavaScript #}
 		<script src="{{ asset('static/js/js.php') }}" type="text/javascript" async="async"></script>
-
-		{% endblock %}
+		{% block body_javascript %}{% endblock %}
 	</body>
 </html>
