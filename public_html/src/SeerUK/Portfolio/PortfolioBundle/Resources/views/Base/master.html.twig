@@ -60,8 +60,16 @@
 							<div class="bubble flip">
 								<nav>
 									<ul class="epic-list">
+										<li class="header visible-phone">
+											<a href="#">
+												Navigation
+												<button type="button" class="pull-right">
+													<i class="icon-chevron-down"></i>
+												</button>
+											</a>
+										</li>
 										{% for key, item in getPrimaryNavigation() %}
-										<li>
+										<li class="hidden-phone">
 											<a href="{{ url( item ) }}" class="ellipsis {% if item == app.request.attributes.get('_route') %}active{% endif %}">{{ key }}</a>
 										</li>
 										{% endfor %}

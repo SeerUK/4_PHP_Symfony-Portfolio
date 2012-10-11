@@ -11,7 +11,7 @@ body {
 
 body {
   font-size: 13px;
-  min-width: 220px;
+  min-width: 250px;
 }
 
 
@@ -144,6 +144,12 @@ body {
 
 /* Bootstrap Overrides:
 =====================*/
+.alert {
+  border-radius: 0;
+  box-shadow: 0 0 0 3px #eee;
+  margin: 3px;
+}
+
 .btn,
 .btn:hover,
 .btn:active,
@@ -166,6 +172,7 @@ body {
 }
 
 .btn {
+  background-image: none;
   font-size: 13px;
 }
 
@@ -349,6 +356,7 @@ body {
   .mainbar > .brand > blockquote {
     border-left: 0;
     border-right: 5px solid #EEE;
+    margin-bottom: 0;
     padding-left: 0;
     padding-right: 15px;
   }
@@ -378,14 +386,20 @@ body {
       transform: rotate(180deg);
     }
 
+    .mainbar {
+      padding-top: 20px;
+    }
+
     .mainbar > .brand {
       float: none;
     }
 
       .mainbar > .brand > blockquote {
-        border-left: 5px solid #EEE;
+        border-bottom: 1px solid #eee;
+        border-left: 0;
         border-right: 0;
-        padding-left: 15px;
+        padding-bottom: 20px;
+        padding-left: 10px;
         padding-right: 0;
       }
 
@@ -433,6 +447,7 @@ body {
 
 .userbar-inner {
   left: 0;
+  min-width: 285px;
   position: fixed;
   right: 0;
   top: 0;
@@ -466,6 +481,10 @@ body {
       font-weight: bold;
     }
 
+      .epic-list > .header > a {
+        margin: -8px -10px;
+      }
+
     .epic-list > .header,
     .epic-list > .desc,
     .epic-list > li > a {
@@ -484,9 +503,26 @@ body {
           font-weight: bold;
         }
 
-    .epic-list > li > .sprite {
-      margin: 8px 8px 7px 8px;
+    .epic-list > li > a > button {
+      background-color: #FAFAFA;
+      background-color: rgba(0,0,0,0.05);
+      border: 1px solid #CCC;
+      color: #222;
+      font-size: 13px;
+      height: 39px;
+      line-height: 17px;
+      margin: -10px -11px;
+      padding: 0 13px;
     }
+
+      .epic-list > li > a:hover > button {
+        box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .epic-list > li > a:active > button {
+        background-color: #DDD;
+        background-color: rgba(0,0,0,0.1);
+      }
 
     .epic-list > li > p,
     .epic-list > li > p ~ p {
@@ -505,6 +541,9 @@ body {
       margin-bottom: 6px;
     }
 
+    .epic-list > li > .sprite {
+      margin: 8px 8px 7px 8px;
+    }
 
 .inline-left {
   margin-right: 10px;
