@@ -4,12 +4,14 @@ namespace SeerUK\Portfolio\PortfolioBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class HomeController extends Controller
+use SeerUK\Portfolio\PortfolioBundle\DependencyInjection\ExtendedController;
+
+class HomeController extends ExtendedController
 {
     public function homeAction()
     {
     	$responseVariables = [
-    		'pageTitle' => 'Home'
+    		'pageTitle' => 'Home',
     	];
         return $this->render('SeerUKPortfolioBundle:Home:home.html.twig', $responseVariables);
     }

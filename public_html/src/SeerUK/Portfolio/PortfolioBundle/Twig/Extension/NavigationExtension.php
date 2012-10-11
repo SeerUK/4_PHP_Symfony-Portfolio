@@ -11,7 +11,7 @@ class NavigationExtension extends \Twig_Extension
 	public function getFunctions()
 	{
 		return [
-			'primary_navigation' => new \Twig_Function_Method($this, 'primaryFunction'),
+			'getPrimaryNavigation' => new \Twig_Function_Method($this, 'getPrimaryNavigation'),
 		];
 	}
 
@@ -28,7 +28,7 @@ class NavigationExtension extends \Twig_Extension
 	 * Returns an array of the routes to show as primary navigation
 	 * @return array An array of routes
 	 */
-	public function primaryFunction()
+	public function getPrimaryNavigation()
 	{
 		return [
 			'Home'      => 'SeerUK_Home',
