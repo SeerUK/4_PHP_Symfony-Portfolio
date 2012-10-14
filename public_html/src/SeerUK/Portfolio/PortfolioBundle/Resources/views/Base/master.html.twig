@@ -34,6 +34,10 @@
 			})();
 		</script>
 
+		{# Typekit Code #}
+		<script type="text/javascript" src="//use.typekit.net/dka5fzj.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
 		{% endblock %}
 	</head>
 	<body>
@@ -57,17 +61,9 @@
 				<div class="row-fluid">
 					<div class="span3">
 						<div class="mainbar">
-							<div class="bubble flip">
+							<div class="flip">
 								<nav>
 									<ul class="epic-list">
-										<li class="header visible-phone">
-											<a href="#">
-												Navigation
-												<button type="button" class="pull-right">
-													<i class="icon-chevron-down"></i>
-												</button>
-											</a>
-										</li>
 										{% for key, item in getPrimaryNavigation() %}
 										<li class="hidden-phone">
 											<a href="{{ url( item ) }}" class="ellipsis {% if item == app.request.attributes.get('_route') %}active{% endif %}">{{ key }}</a>
@@ -77,10 +73,23 @@
 								</nav>
 							</div>
 							<br />
-							<div class="brand flip">
-								<blockquote>
-									<p><strong>Elliot Wright</strong></p>
-									<small>PHP Web Developer</small>
+							<div class="clearfix visible-desktop">
+								<blockquote class="pull-right thinner">
+									<a target="_blank" href="http://seer79.deviantart.com/" title="DeviantART">
+										<span class="desaturate pull-right sprite sprite-deviantart"></span>
+									</a>
+									<a target="_blank" href="https://www.facebook.com/wright.elliot" title="Facebook">
+										<span class="desaturate pull-right sprite sprite-facebook"></span>
+									</a>
+									<a target="_blank" href="https://www.github.com/SeerUK?tab=activity" title="Github">
+										<span class="desaturate pull-right sprite sprite-github"></span>
+									</a>
+									<a target="_blank" href="http://uk.linkedin.com/pub/elliot-wright/58/665/a19" title="LinkedIn">
+										<span class="desaturate pull-right sprite sprite-linkedin"></span>
+									</a>
+									<a target="_blank" href="mailto:wright.elliot@gmail.com" title="Email">
+										<span class="desaturate pull-right sprite sprite-mail"></span>
+									</a>
 								</blockquote>
 							</div>
 						</div>
