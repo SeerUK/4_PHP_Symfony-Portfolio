@@ -5,9 +5,6 @@ namespace SeerUK\Portfolio\PortfolioBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
-use SeerUK\Portfolio\Controller\Module\Blog\HomeController;
-use SeerUK\Portfolio\Controller\Module\Blog\ArticleController;
-
 class BlogController extends Controller
 {
 
