@@ -33,9 +33,9 @@ class NavigationExtension extends \Twig_Extension
 		return [
 			'Home'      => 'SeerUK_Home',
 			'Blog'      => 'SeerUK_BlogHome',
-			'Skills'    => 'SeerUK_BlogHome',
-			'Portfolio' => 'SeerUK_BlogHome',
-			'Contact'   => 'SeerUK_BlogHome',
+			'Skills'    => 'SeerUK_BlogArticle',
+			'Portfolio' => 'SeerUK_BlogArticle',
+			'Contact'   => 'SeerUK_BlogArticle',
 		];
 	}
 
