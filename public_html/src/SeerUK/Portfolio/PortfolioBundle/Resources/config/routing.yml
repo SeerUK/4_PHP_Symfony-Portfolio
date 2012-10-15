@@ -14,5 +14,5 @@ SeerUK_BlogHome:
     defaults: { _controller: SeerUKPortfolioBundle:Blog:Home }
 
 SeerUK_BlogArticle:
-    pattern:  /Blog/Article/{article}
+    pattern:  /Blog/Article/
     defaults: { _controller: SeerUKPortfolioBundle:Blog:Article }

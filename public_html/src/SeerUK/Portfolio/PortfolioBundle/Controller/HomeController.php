@@ -10,9 +10,9 @@ class HomeController extends ExtendedController
 {
     public function homeAction()
     {
-    	$responseVariables = [
-    		'pageTitle' => 'Home',
-    	];
+        $responseVariables = [
+            'pageTitle' => 'Home',
+        ];
         return $this->render('SeerUKPortfolioBundle:Home:home.html.twig', $responseVariables);
     }
 }
