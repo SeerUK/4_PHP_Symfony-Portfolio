@@ -1,4 +1,3 @@
-
 /*!
  * Elliot Wright Portfolio
  *
