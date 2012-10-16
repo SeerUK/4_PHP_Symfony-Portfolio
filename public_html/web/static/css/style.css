@@ -14,7 +14,6 @@ body {
   min-width: 250px;
 }
 
-
 /* Text Styles:
 =============*/
 .capitalize {
@@ -155,12 +154,14 @@ h1 {
     margin-bottom: 12px;
   }
 
-p.lead {
+.lead {
   font-family: 'Prenton', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 400;
   letter-spacing: -0.08333333em;
+  line-height: 28px;
+  margin-bottom: 9px;
 }
-  p.lead > small {
+  .lead > small {
     color: #888;
     font-weight: 300;
     letter-spacing: -.05333333em;
@@ -529,6 +530,7 @@ blockquote {
     border-bottom: 1px solid #d4d4d4;
     border-top: 1px solid white;
     line-height: 1.4;
+    padding: 0 5px 0 0;
   }
     .epic-list > li:hover {
       background: #f7f7f7;
@@ -556,7 +558,8 @@ blockquote {
       background: -ms-linear-gradient(top, #e0e0e0 0%,#dbdbdb 99%);
       background: linear-gradient(to bottom, #e0e0e0 0%,#dbdbdb 99%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0e0e0', endColorstr='#dbdbdb',GradientType=0 );
-      color: #777;
+      border-top: 1px solid #eee;
+      color: #888;
       font-size: 11px;
       font-weight: bold;
       line-height: 12px;
@@ -592,6 +595,7 @@ blockquote {
           border-left: 2px solid #51A351;
           color: #444;
           font-weight: bold;
+          margin-right: -5px;
         }
 
     .epic-list > li > a > button {
