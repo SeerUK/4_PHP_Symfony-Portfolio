@@ -26,10 +26,10 @@
 		private $_feedItem;
 
 		/**
-		 * Memcache driver object
+		 * The cache provider object for caching the current feed
 		 * @var [object]
 		 */
-		private $_memcache;
+		private $_cacheProvider;
 
 		/**
 		 * The raw feed returned from the Github API in the form of a PHP array
@@ -46,16 +46,20 @@
 		/**
 		 * Pass in Github username for feed to parse
 		 * @param [string] $username [The user to parse the feed of]
+		 * @todo  [Inject memcache dependancy better... connections shouldn't be made every time this class is instantiated]
 		 */
 		public function __construct($username)
 		{
 			$this->_username = $username;
+		}
 
-			$memcache = new \Memcache;
-			$memcache->connect('localhost', 11211);
-
-			$this->_memcache = new \Doctrine\Common\Cache\MemcacheCache();
-			$this->_memcache->setMemcache($memcache);
+		/**
+		 * Sets the cache provider
+		 * @param \SeerUK\Portfolio\PortfolioBundle\DependencyInjection\CacheProvider $cacheProvider [A cache provider]
+		 */
+		public function setCacheProvider(\SeerUK\Portfolio\PortfolioBundle\DependencyInjection\Cache\CacheProvider $cacheProvider)
+		{
+			$this->_cacheProvider = $cacheProvider::getMemcache();
 		}
 
 		/**
@@ -64,27 +68,42 @@
 		 */
 		private function _getFeed()
 		{
-			$cachedFeed = $this->_memcache->fetch(__CLASS__ . $this->_username);
-			if($cachedFeed)
+			$cachedFeed = $this->_cacheProvider->fetch(__CLASS__ . $this->_username);
+
+			if(!empty($cachedFeed))
 			{
 				return $cachedFeed;
 			}
 			else
 			{
-				$feedRoot = 'https://api.github.com';
-				$feedUri  = '/users/' . $this->_username . '/events';
+				$response = $this->_getLiveFeed();
 
-				$curl = curl_init();
-
-				curl_setopt($curl, CURLOPT_URL, $feedRoot . $feedUri);
-				curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-				curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-
-				$response = json_decode(curl_exec($curl));
-
-				$this->_memcache->save(__CLASS__ . $this->_username, $response, 300);
+				if($this->_cacheProvider)
+				{
+					$this->_cacheProvider->save(__CLASS__ . $this->_username, $response, 300);
+				}
 				return $response;
 			}
+		}
+
+		/**
+		 * Makes a call to the Github API for the live feed (if not cached)
+		 * @return [array] [A github feed array]
+		 */
+		private function _getLiveFeed()
+		{
+			$feedRoot = 'https://api.github.com';
+			$feedUri  = '/users/' . $this->_username . '/events';
+
+			$curl = curl_init();
+
+			curl_setopt($curl, CURLOPT_URL, $feedRoot . $feedUri);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
+			$response = json_decode(curl_exec($curl));
+
+			return $response;
 		}
 
 		/**

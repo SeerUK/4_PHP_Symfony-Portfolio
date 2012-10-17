@@ -6,6 +6,11 @@ use SeerUK\Portfolio\PortfolioBundle\Handlers\Datetime\DatetimeHandler;
 
 class FeedHandler
 {
+	/**
+	 * The cache client for caching feeds
+	 * @var [object]
+	 */
+	private $_cacheProvider;
 
 	/**
 	 * The final feed array (unsorted)
@@ -14,12 +19,22 @@ class FeedHandler
 	private $_feed = array();
 
 	/**
+	 * Sets the cache provider
+	 * @param \SeerUK\Portfolio\PortfolioBundle\DependencyInjection\CacheProvider $cacheProvider [A cache provider]
+	 */
+	public function setCacheProvider(\SeerUK\Portfolio\PortfolioBundle\DependencyInjection\Cache\CacheProvider $cacheProvider)
+	{
+		$this->_cacheProvider = $cacheProvider;
+	}
+
+	/**
 	 * Adds a feed and parses it:
 	 * @param [string] $parsewr [The feed parser type]
 	 * @param [string] $source [The source for the parser to interpret]
 	 */
 	public function Add(ParseInterface $parser)
 	{
+		$parser->setCacheProvider($this->_cacheProvider);
 		$feed = $parser->parse();
 		$this->_feed = array_merge_recursive($this->_feed, $feed);
 	}
