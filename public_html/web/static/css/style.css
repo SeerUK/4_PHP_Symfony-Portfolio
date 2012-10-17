@@ -530,7 +530,7 @@ blockquote {
     border-bottom: 1px solid #d4d4d4;
     border-top: 1px solid white;
     line-height: 1.4;
-    padding: 0 5px 0 0;
+    padding: 0 10px 0 0;
   }
     .epic-list > li:hover {
       background: #f7f7f7;
@@ -548,7 +548,8 @@ blockquote {
       border-bottom: none;
     }
 
-    .epic-list > .header {
+    .epic-list > .header,
+    .epic-list > .header:hover {
       background: #e0e0e0;
       background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2UwZTBlMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijk5JSIgc3RvcC1jb2xvcj0iI2RiZGJkYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
       background: -moz-linear-gradient(top, #e0e0e0 0%, #dbdbdb 99%);
@@ -595,7 +596,7 @@ blockquote {
           border-left: 2px solid #51A351;
           color: #444;
           font-weight: bold;
-          margin-right: -5px;
+          margin-right: -10px;
         }
 
     .epic-list > li > a > button {

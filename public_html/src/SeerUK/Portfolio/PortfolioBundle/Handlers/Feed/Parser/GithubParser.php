@@ -26,6 +26,12 @@
 		private $_feedItem;
 
 		/**
+		 * Memcache driver object
+		 * @var [object]
+		 */
+		private $_memcache;
+
+		/**
 		 * The raw feed returned from the Github API in the form of a PHP array
 		 * @var [array]
 		 */
@@ -41,9 +47,15 @@
 		 * Pass in Github username for feed to parse
 		 * @param [string] $username [The user to parse the feed of]
 		 */
-		public function __construct( $username )
+		public function __construct($username)
 		{
 			$this->_username = $username;
+
+			$memcache = new \Memcache;
+			$memcache->connect('localhost', 11211);
+
+			$this->_memcache = new \Doctrine\Common\Cache\MemcacheCache();
+			$this->_memcache->setMemcache($memcache);
 		}
 
 		/**
@@ -52,30 +64,32 @@
 		 */
 		private function _getFeed()
 		{
-			/* Dev values:
-			=========== */
-			//$feedRoot = 'http://www.elliot-wright.net';
-			//$feedUri  = '/Feed/SeerUK/';
+			$cachedFeed = $this->_memcache->fetch(__CLASS__ . $this->_username);
+			if($cachedFeed)
+			{
+				return $cachedFeed;
+			}
+			else
+			{
+				$feedRoot = 'https://api.github.com';
+				$feedUri  = '/users/' . $this->_username . '/events';
 
-			/* Production values:
-			================== */
-			$feedRoot = 'https://api.github.com';
-			$feedUri  = '/users/' . $this->_username . '/events';
+				$curl = curl_init();
 
-			$curl = curl_init();
+				curl_setopt($curl, CURLOPT_URL, $feedRoot . $feedUri);
+				curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 
-			curl_setopt( $curl, CURLOPT_URL, $feedRoot . $feedUri );
-			curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
-			curl_setopt( $curl, CURLOPT_SSL_VERIFYPEER, false );
+				$response = json_decode(curl_exec($curl));
 
-			return json_decode( curl_exec( $curl ) );
+				$this->_memcache->save(__CLASS__ . $this->_username, $response, 300);
+				return $response;
+			}
 		}
 
 		/**
 		 * Sets up the parsing of each event from the Github feed.
 		 * @return [array] [The normalised feed ready for merging]
-		 *
-		 * @todo Cache feed, then stop using development values.
 		 */
 		public function parse()
 		{
@@ -89,13 +103,13 @@
 			}
 
 			$i = 0;
-			foreach( $this->_rawFeed as $feedItem )
+			foreach($this->_rawFeed as $feedItem)
 			{
 				$this->_feedItem = $feedItem;
 
 				$returnedFeed[$i] = [
-					'content'   => $this->_delegateEventHandler( $feedItem ),
-					'timestamp' => strtotime( $feedItem->created_at ),
+					'content'   => $this->_delegateEventHandler($feedItem),
+					'timestamp' => strtotime($feedItem->created_at),
 					'type'      => 'github',
 					'owner'     => [
 						'name' => $this->_username,
@@ -117,13 +131,13 @@
 		{
 			$eventHandler = '_' . $this->_feedItem->type;
 
-			if( method_exists( $this, $eventHandler ) )
+			if(method_exists($this, $eventHandler))
 			{
-				return $this->$eventHandler( $this->_feedItem );
+				return $this->$eventHandler($this->_feedItem);
 			}
 			else
 			{
-				return $this->_DefaultEvent( $this->_feedItem );
+				return $this->_DefaultEvent($this->_feedItem);
 			}
 		}
 
@@ -255,7 +269,7 @@
 		private function _PushEvent()
 		{
 			return [
-				'message' => 'pushed to ' . str_replace( 'refs/heads/', '', $this->_feedItem->payload->ref ) . ' in',
+				'message' => 'pushed to ' . str_replace('refs/heads/', '', $this->_feedItem->payload->ref) . ' in',
 				'subject' => $this->_feedItem->repo->name,
 				'url'     => 'https://github.com/' . $this->_feedItem->repo->name . '/commit/' . $this->_feedItem->payload->commits[0]->sha
 			];

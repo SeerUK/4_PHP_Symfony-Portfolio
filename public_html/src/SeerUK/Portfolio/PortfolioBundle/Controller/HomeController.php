@@ -14,6 +14,7 @@ class HomeController extends ExtendedController
     {
         $feedHandler = new FeedHandler;
         $feedHandler->Add(new GithubParser('SeerUK'));
+        $feedHandler->Add(new GithubParser('Unknown-Degree'));
 
         $feedContent = $this->render('SeerUKPortfolioBundle:Handlers:feed.html.twig', ['feed' => $feedHandler->getFeed(8)]);
 
