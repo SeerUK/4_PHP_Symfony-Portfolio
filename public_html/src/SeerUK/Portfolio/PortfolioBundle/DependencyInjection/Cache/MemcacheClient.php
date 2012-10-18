@@ -2,7 +2,9 @@
 
 namespace SeerUK\Portfolio\PortfolioBundle\DependencyInjection\Cache;
 
-class MemcacheClient
+use SeerUK\Portfolio\PortfolioBundle\DependencyInjection\Cache\CacheClientInterface;
+
+class MemcacheClient implements CacheClientInterface
 {
 	/**
 	 * The memcache object

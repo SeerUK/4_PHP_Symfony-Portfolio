@@ -22,7 +22,7 @@ class FeedHandler
 	 * Sets the cache provider
 	 * @param \SeerUK\Portfolio\PortfolioBundle\DependencyInjection\CacheProvider $cacheProvider [A cache provider]
 	 */
-	public function setCacheProvider(\SeerUK\Portfolio\PortfolioBundle\DependencyInjection\Cache\MemcacheClient $memcacheClient)
+	public function __construct(\SeerUK\Portfolio\PortfolioBundle\DependencyInjection\Cache\CacheClientInterface $memcacheClient)
 	{
 		$this->_memcacheClient = $memcacheClient;
 	}
@@ -36,7 +36,6 @@ class FeedHandler
 	{
 		$cacheKey   = get_class($parser) . '::' . $parser->username;
 		$cachedFeed = $this->_memcacheClient->get($cacheKey);
-		var_dump($cacheKey);
 
 		if(!empty($cachedFeed))
 		{

@@ -16,8 +16,7 @@ class HomeController extends ExtendedController
         $memcacheClient  = new MemcacheClient;
 
         // Setup Feed:
-        $feedHandler = new FeedHandler;
-        $feedHandler->setCacheProvider($memcacheClient);
+        $feedHandler = new FeedHandler($memcacheClient);
 
         $feedHandler->Add(new GithubParser('SeerUK'));
         $feedHandler->Add(new GithubParser('Unknown-Degree'));
