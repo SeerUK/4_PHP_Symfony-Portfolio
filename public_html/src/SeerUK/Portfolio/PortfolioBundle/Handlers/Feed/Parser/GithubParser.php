@@ -26,12 +26,6 @@
 		private $_feedItem;
 
 		/**
-		 * The cache provider object for caching the current feed
-		 * @var [object]
-		 */
-		private $_cacheProvider;
-
-		/**
 		 * The raw feed returned from the Github API in the form of a PHP array
 		 * @var [array]
 		 */
@@ -41,7 +35,7 @@
 		 * The user to parse the feed of
 		 * @var [string]
 		 */
-		private $_username;
+		public $username;
 
 		/**
 		 * Pass in Github username for feed to parse
@@ -50,16 +44,7 @@
 		 */
 		public function __construct($username)
 		{
-			$this->_username = $username;
-		}
-
-		/**
-		 * Sets the cache provider
-		 * @param \SeerUK\Portfolio\PortfolioBundle\DependencyInjection\CacheProvider $cacheProvider [A cache provider]
-		 */
-		public function setCacheProvider(\SeerUK\Portfolio\PortfolioBundle\DependencyInjection\Cache\CacheProvider $cacheProvider)
-		{
-			$this->_cacheProvider = $cacheProvider::getMemcache();
+			$this->username = $username;
 		}
 
 		/**
@@ -68,32 +53,8 @@
 		 */
 		private function _getFeed()
 		{
-			$cachedFeed = $this->_cacheProvider->fetch(__CLASS__ . $this->_username);
-
-			if(!empty($cachedFeed))
-			{
-				return $cachedFeed;
-			}
-			else
-			{
-				$response = $this->_getLiveFeed();
-
-				if($this->_cacheProvider)
-				{
-					$this->_cacheProvider->save(__CLASS__ . $this->_username, $response, 300);
-				}
-				return $response;
-			}
-		}
-
-		/**
-		 * Makes a call to the Github API for the live feed (if not cached)
-		 * @return [array] [A github feed array]
-		 */
-		private function _getLiveFeed()
-		{
 			$feedRoot = 'https://api.github.com';
-			$feedUri  = '/users/' . $this->_username . '/events';
+			$feedUri  = '/users/' . $this->username . '/events';
 
 			$curl = curl_init();
 
@@ -114,6 +75,11 @@
 		{
 			$this->_rawFeed = $this->_getFeed();
 
+			if(!is_array($this->_rawFeed))
+			{
+				return false;
+			}
+
 			$returnedFeed = [ ];
 
 			if(empty($this->_rawFeed))
@@ -131,8 +97,8 @@
 					'timestamp' => strtotime($feedItem->created_at),
 					'type'      => 'github',
 					'owner'     => [
-						'name' => $this->_username,
-						'url'  => 'https://github.com/' . $this->_username
+						'name' => $this->username,
+						'url'  => 'https://github.com/' . $this->username
 					]
 				];
 
