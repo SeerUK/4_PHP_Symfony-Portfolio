@@ -64,7 +64,7 @@ class MemcacheClient implements CacheClientInterface
 	 */
 	public function set($key, $value, $duration)
 	{
-		if(2592000 > $duration) {
+		if(2592000 < $duration) {
 			$duration = 2592000;
 			error_log(__METHOD__ . ": Duration set to long. Setting cache expiration to maximum of 30 days.");
 		}
