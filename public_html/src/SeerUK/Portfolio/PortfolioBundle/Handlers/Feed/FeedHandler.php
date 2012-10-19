@@ -10,7 +10,7 @@ class FeedHandler
 	 * The final feed array (unsorted)
 	 * @var array
 	 */
-	private $_feed = array();
+	private $_feed = [];
 
 	/**
 	 * The memcache client for caching feeds
@@ -60,7 +60,7 @@ class FeedHandler
 	 */
 	public function getFeed($limit = false)
 	{
-		$return = array();
+		$return = [];
 
 		if(!empty($this->_feed))
 		{
@@ -100,7 +100,7 @@ class FeedHandler
 	 */
 	public function sortFeed(&$feed, $column, $direction = SORT_DESC)
 	{
-		$sortColumn = array();
+		$sortColumn = [];
 
 		foreach($feed as $key => $row)
 		{
