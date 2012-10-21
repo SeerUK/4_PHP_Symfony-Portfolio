@@ -89,12 +89,7 @@ body {
 }
 
 .content-login {
-  height: 335px;
-  left: 50%;
-  margin: -220px 0 0 -135px;
-  position: absolute;
-  top: 50%;
-  width: 270px;
+
 }
 
 .content-long {
@@ -203,6 +198,21 @@ h1 {
 .btn-fancy {
   box-shadow: 0 1px 0 rgba(255, 255, 255, .4) inset, 0 0 0 rgba(0, 0, 0, .3) inset, 0 0 10px rgba(255, 255, 255, .3) inset, 0 2px 4px rgba(0, 0, 0, .2);
 }
+
+.modal {
+  border: 1px solid #ccc;
+  -mox-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+  .modal > form {
+    margin-bottom: 0;
+  }
+
+    .modal .modal-header > .lead {
+      margin: 0;
+    }
 
 .well {
   border-radius: 0;

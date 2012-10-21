@@ -1,0 +1,36 @@
+{% extends 'SeerUKPortfolioBundle:Base:master.html.twig' %}
+
+{% block body %}
+
+<div class="content-login modal">
+	<form class="form-horizontal" method="POST">
+		<div class="modal-header">
+			<p class="lead">Sign In <small>/ Secured Area</small></p>
+		</div>
+
+		<div class="modal-body">
+			<br />
+			<div class="control-group">
+				<label class="control-label" for="_username">Username</label>
+				<div class="controls">
+					<input type="text" class="" name="_username" />
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="_username">Password</label>
+				<div class="controls">
+					<input type="password" class="" name="_password" />
+				</div>
+			</div>
+		</div>
+
+		<div class="modal-footer">
+			<a href="#" class="btn btn-fancy pull-left">Register</a>
+			<input type="reset" class="btn btn-fancy" value="Reset" />
+			<input type="submit" class="btn btn-fancy btn-primary" value="Sign In" />
+		</div>
+	</form>
+</div>
+
+{% endblock %}

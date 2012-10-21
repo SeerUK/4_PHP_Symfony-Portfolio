@@ -5,6 +5,19 @@ SeerUK_Home:
     pattern:  /
     defaults: { _controller: SeerUKPortfolioBundle:Home:Home }
 
+# ===========================
+#  Administrative Pages
+# ===========================
+SeerUK_AccountLogin:
+    pattern: /Account/Login
+    defaults: { _controller: SeerUKPortfolioBundle:Account:Login }
+
+# ===========================
+#  Administrative Pages
+# ===========================
+SeerUK_AdminHome:
+    pattern: /Admin
+    defaults: { _controller: SeerUKPortfolioBundle:Admin:Home }
 
 # ===========================
 #  Blog Controllers
