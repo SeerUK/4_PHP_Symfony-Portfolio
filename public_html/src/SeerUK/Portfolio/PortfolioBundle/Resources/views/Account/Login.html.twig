@@ -3,7 +3,7 @@
 {% block body %}
 
 <div class="content-login modal">
-	<form class="form-horizontal" method="POST">
+	<form action="{{ path('SeerUK_AccountLoginCheck') }}" class="form-horizontal" method="POST">
 		<div class="modal-header">
 			<p class="lead">Sign In <small>/ Secured Area</small></p>
 		</div>
@@ -24,6 +24,12 @@
 				</div>
 			</div>
 		</div>
+
+		{% if error %}
+			<div class="control-group">
+				{{ error.message }}
+			</div>
+		{% endif %}
 
 		<div class="modal-footer">
 			<a href="#" class="btn btn-fancy pull-left">Register</a>

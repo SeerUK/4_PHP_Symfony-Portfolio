@@ -29,12 +29,12 @@ security:
         secured_area:
             pattern:    ^/
             form_login:
-                check_path: /Account/Login
+                check_path: /Account/Login/Check
                 login_path: /Account/Login
             logout:
                 path:   /Account/Logout
                 target: /
-            #anonymous: ~
+            anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
 
