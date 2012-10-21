@@ -6,6 +6,7 @@
 
 html,
 body {
+  background-image: url('../images/subtle_dots.png');
   height: 100%;
 }
 
