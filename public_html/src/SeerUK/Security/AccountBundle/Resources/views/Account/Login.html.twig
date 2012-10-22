@@ -27,7 +27,15 @@
 
 		{% if error %}
 			<div class="control-group">
-				{{ error.message }}
+				<div class="row-fluid">
+					<div class="span1"></div>
+					<div class="span10">
+						<div class="alert alert-error">
+							<strong>Login Error: </strong>{{ error.message }}
+						</div>
+					</div>
+					<div class="span1"></div>
+				</div>
 			</div>
 		{% endif %}
 
