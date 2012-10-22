@@ -232,7 +232,7 @@ blockquote {
     border-width: 1px;
   }
 
-.well > .navbtn {
+.well .navbtn {
   background-color: #eee;
   background-color: rgba(0,0,0,0.10);
   border: 0;
@@ -245,7 +245,7 @@ blockquote {
   padding: 0 16px;
 }
 
-.well-dark > .navbtn {
+.well-dark .navbtn {
   background-color: #222;
   background-color: rgba(0,0,0,0.3);
   border: 0;
@@ -258,7 +258,7 @@ blockquote {
 }
 
 .navbtn + .navbtn {
-  margin-right: 5px;
+  margin-left: 5px;
 }
 
 .navbtn {

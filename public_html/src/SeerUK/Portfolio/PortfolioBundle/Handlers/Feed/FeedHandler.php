@@ -44,7 +44,7 @@ class FeedHandler
 		else
 		{
 			$feed = $parser->parse();
-			$this->_memcacheClient->set($cacheKey, $feed, 300);
+			$this->_memcacheClient->set($cacheKey, $feed, 600);
 		}
 
 		if(is_array($feed))

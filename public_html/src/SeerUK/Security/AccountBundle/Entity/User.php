@@ -26,11 +26,6 @@ class User implements UserInterface
     private $account_name;
 
     /**
-     * @ORM\Column(type="string", length=32)
-     */
-    private $account_salt;
-
-    /**
      * @ORM\Column(type="string", length=128)
      */
     private $account_password;
@@ -72,15 +67,7 @@ class User implements UserInterface
      */
     public function getSalt()
     {
-        return $this->account_salt;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function setSalt($salt)
-    {
-    	$this->account_salt = $salt;
+        return null;
     }
 
     /**

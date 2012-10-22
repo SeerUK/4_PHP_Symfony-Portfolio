@@ -22,7 +22,7 @@ class AppKernel extends Kernel
             new SeerUK\Portfolio\PortfolioBundle\SeerUKPortfolioBundle(),
             new SeerUK\Security\AccountBundle\SeerUKSecurityAccountBundle(),
             new SeerUK\Base\BaseBundle\SeerUKBaseBaseBundle(),
-            new SeerUK\Security\EncryptionBundle\SeerUKSecurityEncryptionBundle(),
+            new Elnur\BlowfishPasswordEncoderBundle\ElnurBlowfishPasswordEncoderBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

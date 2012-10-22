@@ -22,10 +22,10 @@ class AccountController extends Controller
 			$session->remove(SecurityContext::AUTHENTICATION_ERROR);
 		}
 
-    	$responseVariables = [
-    		'pageTitle' => 'Login',
-    		'error'     => $error,
-    	];
-        return $this->render('SeerUKSecurityAccountBundle:Account:Login.html.twig', $responseVariables);
+        return $this->render('SeerUKSecurityAccountBundle:Account:Login.html.twig',[
+    		'pageTitle'     => 'Login',
+    		'last_username' => $session->get(SecurityContext::LAST_USERNAME),
+    		'error'         => $error,
+    	]);
 	}
 }
