@@ -1,0 +1,7 @@
+parameters:
+#    seer_uk_base_base.example.class: SeerUK\Base\BaseBundle\Example
+
+services:
+#    seer_uk_base_base.example:
+#        class: %seer_uk_base_base.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

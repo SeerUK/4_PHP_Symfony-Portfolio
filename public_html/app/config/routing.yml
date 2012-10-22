@@ -1,3 +1,11 @@
+seer_uk_base_base:
+    resource: "@SeerUKBaseBaseBundle/Resources/config/routing.yml"
+    prefix:   /
+
+seer_uk_security_account:
+    resource: "@SeerUKSecurityAccountBundle/Resources/config/routing.yml"
+    prefix:   /
+
 seer_uk_portfolio:
     resource: "@SeerUKPortfolioBundle/Resources/config/routing.yml"
     prefix:   /

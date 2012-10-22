@@ -1,0 +1,7 @@
+parameters:
+#    seer_uk_security_account.example.class: SeerUK\Security\AccountBundle\Example
+
+services:
+#    seer_uk_security_account.example:
+#        class: %seer_uk_security_account.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

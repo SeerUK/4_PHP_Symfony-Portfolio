@@ -1,0 +1,12 @@
+# ===========================
+#  Account Pages
+# ===========================
+SeerUK_AccountLogin:
+    pattern: /Account/Login
+    defaults: { _controller: SeerUKSecurityAccountBundle:Account:Login }
+
+SeerUK_AccountLoginCheck:
+    pattern: /Account/Login/Check
+
+SeerUK_AccountLogout:
+    pattern: /Account/Logout

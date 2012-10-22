@@ -1,15 +1,12 @@
 <?php
 
-namespace SeerUK\Portfolio\PortfolioBundle\Controller;
+namespace SeerUK\Security\AccountBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
 
-use SeerUK\Portfolio\PortfolioBundle\DependencyInjection\ExtendedController;
-
-class AccountController extends ExtendedController
+class AccountController extends Controller
 {
-
 	public function loginAction()
 	{
 		$request = $this->getRequest();
@@ -29,7 +26,6 @@ class AccountController extends ExtendedController
     		'pageTitle' => 'Login',
     		'error'     => $error,
     	];
-        return $this->render('SeerUKPortfolioBundle:Account:Login.html.twig', $responseVariables);
+        return $this->render('SeerUKSecurityAccountBundle:Account:Login.html.twig', $responseVariables);
 	}
-
 }
