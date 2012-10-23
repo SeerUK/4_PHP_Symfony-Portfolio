@@ -31,6 +31,11 @@ class User implements UserInterface
     private $account_password;
 
     /**
+     * @inheritDoc
+     */
+    private $account_salt;
+
+    /**
      * @ORM\Column(type="string", length=255, unique=true)
      */
     private $account_email;
@@ -42,7 +47,6 @@ class User implements UserInterface
 
     public function __construct()
     {
-        $this->isActive = true;
         $this->account_salt = '';
     }
 
@@ -91,7 +95,7 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return array('ROLE_USER', 'ROLE_ADMIN');
     }
 
     /**
