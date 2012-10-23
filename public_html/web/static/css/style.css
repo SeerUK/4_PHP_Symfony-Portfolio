@@ -255,6 +255,23 @@ blockquote {
   padding: 0 16px;
 }
 
+.well-dark .navtitle,
+.well .navtitle {
+  color: #000;
+  display: block;
+  font-family: Prenton, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
+  -webkit-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+  .well-dark .navtitle:hover,
+  .well .navtitle:hover {
+    color: white;
+  }
+
 .navbtn + .navbtn {
   margin-left: 5px;
 }
