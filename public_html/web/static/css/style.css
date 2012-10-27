@@ -537,14 +537,14 @@ blockquote {
 }
 
   .epic-list > li {
-    background-color: #f1f1f1;
+    background-color: #f8f8f8;
     border-bottom: 1px solid #d4d4d4;
     border-top: 1px solid white;
     line-height: 1.4;
     padding: 0 10px 0 0;
   }
     .epic-list > li:hover {
-      background-color: #f7f7f7;
+      background-color: #fbfbfb;
     }
 
     .epic-list > li:last-child {
@@ -553,8 +553,8 @@ blockquote {
 
     .epic-list > .header,
     .epic-list > .header:hover {
-      background-color: #e0e0e0;
-      border-top: 1px solid #eee;
+      background-color: #f1f1f1;
+      border-top: 1px solid #f7f7f7;
       color: #888;
       font-size: 11px;
       font-weight: bold;
@@ -587,7 +587,7 @@ blockquote {
       }
 
         .epic-list .active {
-          background: #fcfcfc;
+          background: white;
           border-left: 2px solid #51A351;
           color: #444;
           font-weight: bold;

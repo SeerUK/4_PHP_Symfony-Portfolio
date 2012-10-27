@@ -17,9 +17,8 @@ class UserRepository extends EntityRepository implements UserProviderInterface
 
         $q = $this
             ->createQueryBuilder('u')
-            ->where('u.account_name = :username OR u.account_email = :email')
+            ->where('u.account_name = :username')
             ->setParameter('username', $username)
-            ->setParameter('email', $username)
             ->getQuery()
         ;
 
@@ -28,7 +27,7 @@ class UserRepository extends EntityRepository implements UserProviderInterface
         try {
             $user = $q->getSingleResult();
         } catch (NoResultException $e) {
-            throw new UsernameNotFoundException(sprintf('Unable to find an active user AcmeUserBundle:User object identified by "%s".', $username), null, 0, $e);
+            throw new UsernameNotFoundException(sprintf('Unable to find an active user SeerUKSecurityAccountBundle:User object identified by "%s".', $username), null, 0, $e);
         }
 
         return $user;
