@@ -5,7 +5,7 @@
 			<span class="pull-left sprite sprite-{{ feedItem.type }}" title="{{ feedItem.type }}"></span>
 			<p class="ellipsis">
 				{% if feedItem.owner.url is not null %}
-					<a href="{{ feedItem.owner.url }}" target="_blank">{{ feedItem.owner.name }}</a>
+					<strong><a href="{{ feedItem.owner.url }}" target="_blank">{{ feedItem.owner.name }}</a></strong>
 				{% else %}
 					{{ feedItem.owner.name }}
 				{% endif %}

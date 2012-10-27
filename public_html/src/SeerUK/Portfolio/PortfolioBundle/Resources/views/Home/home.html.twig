@@ -5,20 +5,11 @@
 <div class="span9">
 	<div class="content-row">
 		<div class="content-col">
-			<p class="lead">Hey, thanks for stopping by!<br /><small>I'm Elliot Wright, a PHP web developer.</small></p>
+			<h2>Hey, thanks for stopping by!<br /><small>I'm Elliot Wright, a PHP web developer.</small></h2>
 			<p>I like to work on a lot of things, if you want to see pretty much everything I'm working on (publically) at the moment, check out the 'Recent Activity' feed to the right!</p>
 			<p>The major projects I'm working on at the moment you can find described in a bit more detail by <span class="hidden-phone">checking out the box below, or </span>looking at my <a href="#">portfolio page</a>.</p>
-			<div class="mini-project hidden-phone well">
-				<img src="{{ asset('static/images/projects/140_140_thnm.jpg') }}" class="pull-left img-polaroid" alt="" title="" width="140" height="140" />
-				<div class="desc">
-					<p class="header"><strong>Top Hats &amp; Monocles</strong> (<abbr title="Top Hats &amp; Monocles">THNM</abbr>)</p>
-					<p class="desc"><abbr title="Top Hats &amp; Monocles">THNM</abbr> is a live streaming website for multiple streamers to use to entertain viewers.</p>
-					<p>The website is being redeveloped with better code and functionality in mind.</p>
-				</div>
-				<button class="btn btn-success btn-fancy btn-block">View Project</button>
-			</div>
+			<img src="{{ asset('static/images/sublime.jpg') }}" alt="" />
 		</div>
-		<div class="well well-container well-invisible well-mini hidden-desktop hidden-tablet"></div>
 		<div class="content-col">
 			{{ recentActivity | raw }}
 		</div>

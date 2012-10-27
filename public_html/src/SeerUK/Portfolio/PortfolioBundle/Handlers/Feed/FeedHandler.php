@@ -8,7 +8,7 @@ class FeedHandler
 {
 	/**
 	 * The final feed array (unsorted)
-	 * @var array
+	 * @var [array]
 	 */
 	private $_feed = [];
 
