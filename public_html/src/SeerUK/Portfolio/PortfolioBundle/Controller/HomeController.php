@@ -4,8 +4,6 @@ namespace SeerUK\Portfolio\PortfolioBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Elnur\BlowfishPasswordEncoderBundle\Security\Encoder\BlowfishPasswordEncoder;
-
 use SeerUK\Portfolio\PortfolioBundle\DependencyInjection\ExtendedController;
 use SeerUK\Portfolio\PortfolioBundle\DependencyInjection\Cache\MemcacheClient;
 use SeerUK\Portfolio\PortfolioBundle\Handlers\Feed\FeedHandler;

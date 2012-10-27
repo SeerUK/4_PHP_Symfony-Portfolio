@@ -4,11 +4,11 @@
 
 <div class="span9">
 	<div class="content-row">
-		<div class="content-col">
+		<div class="content-col subcontent-fixed-height shadowed">
 			<h2>Hey, thanks for stopping by!<br /><small>I'm Elliot Wright, a PHP web developer.</small></h2>
 			<p>I like to work on a lot of things, if you want to see pretty much everything I'm working on (publically) at the moment, check out the 'Recent Activity' feed to the right!</p>
 			<p>The major projects I'm working on at the moment you can find described in a bit more detail by <span class="hidden-phone">checking out the box below, or </span>looking at my <a href="#">portfolio page</a>.</p>
-			<img src="{{ asset('static/images/sublime.jpg') }}" alt="" />
+			<img class="relative" style="z-index: -1" src="{{ asset('static/images/sublime.jpg') }}" alt="" />
 		</div>
 		<div class="content-col">
 			{{ recentActivity | raw }}
