@@ -49,28 +49,25 @@
 			<div class="userbar">
 				<div class="userbar-inner">
 					<div class="well well-dark well-small">
+						<div class="pull-left">
+							<span class="navtitle">Elliot Wright</span>
+						</div>
+						{# If a user is logged in #}
+						{% if app.user %}
 
-							<div class="pull-left">
-								<span class="navtitle">Elliot Wright</span>
-							</div>
+						<div class="pull-right">
+							<button type="button" class="navbtn navbtn-primary pull-left">{{ app.user.username }}</button>
+							<a href="{{ path('SeerUK_AccountLogout') }}" class="navbtn navbtn-primary pull-left">Sign Out</a>
+						</div>
 
-							{# If a user is logged in #}
-							{% if app.user %}
+						{# If a user is anonymous #}
+						{% else %}
 
-							<div class="pull-right">
-								<button type="button" class="navbtn navbtn-info pull-left">{{ app.user.username }}</button>
-								<a href="{{ path('SeerUK_AccountLogout') }}" class="navbtn navbtn-danger pull-left">Sign Out</a>
-							</div>
+						<div class="pull-right">
+							<a href="{{ path('SeerUK_AccountLogin') }}" class="navbtn navbtn-primary pull-right">Sign In</a>
+						</div>
 
-							{# If a user is anonymous #}
-							{% else %}
-
-							<div class="pull-right">
-								<a href="{{ path('SeerUK_AccountLogin') }}" class="navbtn navbtn-success pull-right">Sign In</a>
-							</div>
-
-							{% endif %}
-
+						{% endif %}
 					</div>
 				</div>
 			</div>

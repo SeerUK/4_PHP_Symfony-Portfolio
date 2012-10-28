@@ -588,7 +588,7 @@ blockquote {
 
         .epic-list .active {
           background: white;
-          border-left: 2px solid #51A351;
+          border-left: 2px solid #006dcc;
           color: #444;
           font-weight: bold;
           margin-right: -10px;
